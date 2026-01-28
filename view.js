@@ -18,12 +18,12 @@
 //   });
 // }
 
-function getBook() {
+function getBook(listBooks) {
   const tableBody = document.getElementById("table-body");
   const showDate = document.querySelector(".showDate");
   const Selected = document.getElementById("selected");
   tableBody.innerHTML = "";
-  books.forEach((book) => {
+  listBooks.forEach((book) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
         <td>${book.id}</td>

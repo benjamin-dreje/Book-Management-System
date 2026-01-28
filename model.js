@@ -17,3 +17,7 @@ const books = [
   { id: 25, title: "The Catcher in the Rye", price: 4.55 },
   { id: 24, title: "Effective Modern C++", price: 34.0 },
 ];
+
+function getBooksMode() {
+  return books;
+}

@@ -1,3 +1,4 @@
 function init() {
-  getBook();
+  const allBooks = getBooksMode();
+  getBook(allBooks);
 }
