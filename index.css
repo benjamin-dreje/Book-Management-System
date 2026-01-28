@@ -73,7 +73,7 @@ th {
 .bookImg {
   width: 200px;
   height: 200px;
-  border-radius: 20px;
+  border-radius: 2px;
   object-fit: cover;
 }
 
