@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+.continer {
+  display: flex;
+}
+
+.addbook {
+  background-color: #0f0f3b;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.dataBook {
+  background-color: #eef1f3;
+  width: 80%;
+  padding-top: 0;
+}
+
+button {
+  font-size: large;
+  font-family: sans-serif;
+  color: white;
+  padding-left: 20px;
+  background: none;
+  border: none;
+}
+
+table.book-table {
+  table-layout: fixed;
+  width: 66%;
+  border-collapse: collapse;
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid #0f0f3b;
+  width: 100%;
+}
+thead {
+  background-color: #1e1e67;
+  color: white;
+  border: none;
+  border-style: none;
+}
+tr,
+td,
+th {
+  border: 1px solid lightgrey;
+  padding: 12px 15px;
+}
+
+.read-btn,
+.action-link,
+.delete-icon {
+  cursor: pointer;
+  color: black;
+}
+
+.read-btn:hover,
+.action-link:hover {
+  color: #1717f7;
+}
+.delete-icon:hover {
+  background-color: rgb(219, 66, 66);
+}
+
+.bookImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.container2 {
+  display: flex;
+  gap: 20px;
+}
+.info {
+  display: inline-block;
+  width: 250px;
+  height: 200px;
+  color: rgba(82, 82, 82, 0.9);
+}
+.selected {
+  transition: 2s ease;
+  box-shadow: 0px 0 80px 0.5px #8f8e8e70;
+  padding: 10px;
+  margin-top: 10px;
+  background: white;
+  border-radius: 4px;
+  margin-left: 20px;
+  height: 100vh;
+  width: 490px;
+}

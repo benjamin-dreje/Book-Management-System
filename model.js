@@ -1,0 +1,13 @@
+const books = [
+  {
+    id: 28,
+    Image: "the hubbit.png",
+    info: "The story is told in the form of a picaresque or episodic journey; [1] several chapters introduce a new type of monster or threat as Bilbo progresses through the landscape. Bilbo acquires a new level of maturity, skill, and wisdom by embracing the unrefined, romantic, fairy-like, and adventurous aspects of his nature and applying his insight and common sense.",
+    title: "The Hobbit",
+    price: 34.0,
+  },
+  { id: 27, title: "The Hitchhikers Guide to the Galaxy", price: 13.95 },
+  { id: 26, title: "The Lord Of The Rings", price: 32.55 },
+  { id: 25, title: "The Catcher in the Rye", price: 4.55 },
+  { id: 24, title: "Effective Modern C++", price: 34.0 },
+];

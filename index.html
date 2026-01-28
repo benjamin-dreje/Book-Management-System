@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Crm</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body onload="init()">
+    <h1>Book Management System</h1>
+
+    <!-- contianer for speace between-->
+
+    <!-- book-->
+    <div class="addbook">
+      <button onclick="addNewBook()">+ Add new Book</button>
+    </div>
+    <!-- contianer for speace between-->
+    <div class="continer">
+      <div class="dataBook">
+        <table class="book-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title ▲</th>
+              <th>Price ▲</th>
+              <th colspan="3">Action</th>
+            </tr>
+          </thead>
+
+          <!-- to inject fron the dom-->
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <!-- show book-->
+      <div class="showDate">
+        <div class="selected" id="selected">
+          <h3>Selected Book Details:</h3>
+        </div>
+      </div>
+    </div>
+
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+  </body>
+</html>
