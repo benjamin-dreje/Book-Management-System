@@ -71,6 +71,47 @@ function getBook(listBooks) {
       }
     });
 
+    //
+    let updateList = tr.querySelector(".action-link");
+    updateList.addEventListener("click", () => {
+      let newTitle = prompt("What is the new title?");
+      let newPrice = prompt("What is the new price?");
+      if (
+        !newTitle ||
+        !newTitle.trim() ||
+        isNaN(newPrice) ||
+        newPrice.trim() === ""
+      ) {
+        console.log("Invalid information");
+      } else {
+        // אם הכל תקין - מעדכנים
+        book.title = newTitle.trim();
+        book.price = Number(newPrice);
+
+        //tr הוא המשתנה שמייצג את השורה הספציפית בטבלה עליה לחצת. כל שורה ב-HTML מורכבת מ"ילדים" (Children)
+
+        // עדכון התצוגה בטבלה באופן מיידי
+        tr.children[1].innerText = book.title;
+        //tr.children[0] – התא הראשון (ה-ID של הספר).
+        //tr.children[1] – התא השני (הכותרת).
+        tr.children[2].innerText = `$${book.price}`;
+        //tr.children[2] – התא השלישי (המחיר).
+        //tr.children[3] ומעלה – כפתורי ה-Read, Update וכו'.
+
+        // בתוך ה-else של העדכון המוצלח:
+        const msgContainer = document.getElementById("msg-container");
+
+        // 1. נציג את ההודעה
+        msgContainer.innerText = `Book "${book.title}" updated successfully!`;
+
+        // 2. נגדיר טיימר שימחק אותה אחרי 5 שניות
+        setTimeout(() => {
+          msgContainer.innerText = ""; // מוחק את הטקסט
+          console.log("Message cleared automatically");
+        }, 5000);
+      }
+    });
+
     tableBody.appendChild(tr);
   });
 }
