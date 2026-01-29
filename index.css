@@ -23,9 +23,6 @@ h1 {
 }
 .dataBook {
   width: 70%;
-  padding-top: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 button {
@@ -39,7 +36,6 @@ button {
 
 table.book-table {
   table-layout: fixed;
-  width: 66%;
   border-collapse: collapse;
   background-color: rgb(255, 255, 255);
   border-top: 2px solid #0f0f3b;
@@ -48,8 +44,6 @@ table.book-table {
 thead {
   background-color: #1e1e67;
   color: white;
-  border: none;
-  border-style: none;
 }
 tr,
 td,
@@ -75,7 +69,7 @@ th {
 
 .bookImg {
   width: 200px;
-  height: 200px;
+  /* height: 200px;*/
   border-radius: 2px;
   object-fit: cover;
 }

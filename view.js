@@ -74,7 +74,7 @@ function getBook(listBooks) {
     //
     let updateList = tr.querySelector(".action-link");
     updateList.addEventListener("click", () => {
-      let newTitle = prompt("What is the new title?");
+      let newTitle = prompt("What is the new title?"); // לבדוק שזה סטרינג בלבד
       let newPrice = prompt("What is the new price?");
       let newId = prompt("what is the new id?");
       if (
