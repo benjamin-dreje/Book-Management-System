@@ -76,21 +76,27 @@ function getBook(listBooks) {
     updateList.addEventListener("click", () => {
       let newTitle = prompt("What is the new title?");
       let newPrice = prompt("What is the new price?");
+      let newId = prompt("what is the new id?");
       if (
         !newTitle ||
         !newTitle.trim() ||
         isNaN(newPrice) ||
-        newPrice.trim() === ""
+        newPrice.trim() === "" ||
+        isNaN(newId) ||
+        newId === ""
       ) {
-        console.log("Invalid information");
+        alert("Invalid information");
       } else {
         // אם הכל תקין - מעדכנים
         book.title = newTitle.trim();
         book.price = Number(newPrice);
+        book.id = Number(newId);
 
         //tr הוא המשתנה שמייצג את השורה הספציפית בטבלה עליה לחצת. כל שורה ב-HTML מורכבת מ"ילדים" (Children)
 
         // עדכון התצוגה בטבלה באופן מיידי
+        tr.children[0].innerText = book.id;
+
         tr.children[1].innerText = book.title;
         //tr.children[0] – התא הראשון (ה-ID של הספר).
         //tr.children[1] – התא השני (הכותרת).
