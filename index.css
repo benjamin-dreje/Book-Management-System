@@ -140,6 +140,7 @@ h3 {
   overflow-y: auto;
   /* מונע גלילה לצדדים אם יש חריגה ברוחב */
   overflow-x: hidden;
+  flex-grow: 1;
 }
 
 /* 1. הגדרת הרוחב הכללי של פס הגלילה */
@@ -162,4 +163,7 @@ h3 {
 /* 4. שינוי צבע הידית כשמרחפים מעליה */
 .showDate::-webkit-scrollbar-thumb:hover {
   background: #1e1e67;
+}
+.showDate h3 {
+  padding: 10px 10px;
 }
