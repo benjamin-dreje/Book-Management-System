@@ -36,16 +36,16 @@ function getBook(listBooks) {
 
     const readBtn = tr.querySelector(".read-btn");
     readBtn.addEventListener("click", () => {
-      showDate.innerHTML = `
+      showDate.innerHTML += `
         <div style="box-shadow: 0px 0 80px 0.5px #8f8e8e70;
     padding: 10px;
     margin-top: 10px;
     background: white;
     border-radius: 4px;
     margin-left: 20px;
-    height: 100vh;
+    
 }">
-          <h3>Selected Book Details:</h3>
+          
           <div class="container2">
           <div class="imageCon">
           <img src="${book.Image}" class="bookImg"/>
