@@ -116,14 +116,16 @@ h3 {
 }
 .msg {
   /* height: 300px; */
-  height: 200px;
+  height: 250px;
   /* border: 1px solid lightgray; */
   display: flex;
   align-items: center;
   justify-content: center;
   width: 300px;
   background-color: #51db51;
+  border-radius: 10px;
   color: white;
+  font-weight: 800;
   /* border: 1px solid; */
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
