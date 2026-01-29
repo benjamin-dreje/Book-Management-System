@@ -99,14 +99,15 @@ function getBook(listBooks) {
         //tr.children[3] ומעלה – כפתורי ה-Read, Update וכו'.
 
         // בתוך ה-else של העדכון המוצלח:
-        const msgContainer = document.getElementById("msg-container");
+        const msgContainer = document.getElementById("msg");
 
         // 1. נציג את ההודעה
         msgContainer.innerText = `Book "${book.title}" updated successfully!`;
-
+        msgContainer.classList.remove("hidden");
         // 2. נגדיר טיימר שימחק אותה אחרי 5 שניות
         setTimeout(() => {
           msgContainer.innerText = ""; // מוחק את הטקסט
+          msgContainer.classList.add("hidden");
           console.log("Message cleared automatically");
         }, 5000);
       }
