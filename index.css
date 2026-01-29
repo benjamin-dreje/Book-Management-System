@@ -174,3 +174,7 @@ h3 {
 .showDate h3 {
   padding: 10px 10px;
 }
+
+.add {
+  cursor: pointer;
+}
