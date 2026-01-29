@@ -132,6 +132,11 @@ h3 {
 .hidden {
   display: none;
 }
+
+.showContainer {
+  padding: 10px;
+}
+
 .showDate {
   width: 510px;
   background-color: white;
