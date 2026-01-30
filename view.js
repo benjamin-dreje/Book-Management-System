@@ -71,6 +71,8 @@ function getBook(listBooks) {
           console.log("Deleted index:", index);
           tr.remove();
         }
+      } else {
+        return console.log("book was not deleted");
       }
     });
 
