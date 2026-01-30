@@ -62,6 +62,8 @@ th {
 .read-btn:hover,
 .action-link:hover {
   color: #1717f7;
+  font-weight: 600;
+  background-color: #e2e2e280;
 }
 .delete-icon:hover {
   background-color: rgb(219, 66, 66);
