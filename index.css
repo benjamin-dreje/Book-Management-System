@@ -170,7 +170,15 @@ h3 {
 .showDate h3 {
   padding: 10px 10px;
 }
-
 .add {
   cursor: pointer;
+  background-color: #363691;
+  padding: 5px;
+  color: "יןאק";
+  /* height: 40px; */
+  margin-left: 5px;
+  border-radius: 5px;
+}
+.add:hover {
+  background-color: #4848a5;
 }
