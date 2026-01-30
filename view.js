@@ -63,11 +63,14 @@ function getBook(listBooks) {
 
     const deleteBook = tr.querySelector(".delete-icon");
     deleteBook.addEventListener("click", () => {
-      const index = books.findIndex((b) => b.id === book.id);
-      if (index !== -1) {
-        books.splice(index, 1);
-        console.log("Deleted index:", index);
-        tr.remove();
+      let ok = confirm("Are you sure you want to delete this book? ");
+      if (ok) {
+        const index = books.findIndex((b) => b.id === book.id);
+        if (index !== -1) {
+          books.splice(index, 1);
+          console.log("Deleted index:", index);
+          tr.remove();
+        }
       }
     });
 
