@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Crm</title>
     <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/7eb4e0667b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body onload="init()">
     <h1>Book Management System</h1>
@@ -13,7 +17,9 @@
 
     <!-- book-->
     <div class="addbook">
-      <button class="add" onclick="addNewBook()">+ Add new Book</button>
+      <button class="add" onclick="addNewBook()">
+        <i class="fa-solid fa-plus"></i> Add new Book
+      </button>
     </div>
     <!-- contianer for speace between-->
     <div class="continer">
@@ -22,8 +28,8 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th>Title ▲</th>
-              <th>Price ▲</th>
+              <th>Title <i class="fa-solid fa-caret-up"></i></th>
+              <th>Price <i class="fa-solid fa-caret-up"></i></th>
               <th colspan="3">Action</th>
             </tr>
           </thead>

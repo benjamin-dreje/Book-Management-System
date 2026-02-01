@@ -31,7 +31,7 @@ function getBook(listBooks) {
         <td>$${book.price}</td>
         <td class="read-btn">Read</td>
         <td class="action-link">Update</td>
-        <td class="delete-icon">🗑️</td>
+        <td class="delete-icon"><i class="fa-solid fa-trash"></i></td>
     `;
 
     const readBtn = tr.querySelector(".read-btn");

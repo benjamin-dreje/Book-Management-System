@@ -53,8 +53,7 @@ th {
 }
 
 .read-btn,
-.action-link,
-.delete-icon {
+.action-link {
   cursor: pointer;
   color: black;
 }
@@ -65,8 +64,14 @@ th {
   font-weight: 600;
   background-color: #e2e2e280;
 }
+.delete-icon {
+  background-color: white;
+  color: rgb(219, 66, 66);
+}
 .delete-icon:hover {
-  background-color: rgb(219, 66, 66);
+  background-color: #e2e2e280;
+  color: rgb(219, 66, 66);
+  cursor: pointer;
 }
 
 .bookImg {
