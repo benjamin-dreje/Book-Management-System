@@ -33,55 +33,50 @@ function getBook(listBooks) {
         <td class="action-link">Update</td>
         <td class="delete-icon"><i class="fa-solid fa-trash"></i></td>
     `;
-
-    const readBtn = tr.querySelector(".read-btn");
-    readBtn.addEventListener("click", () => {
-      showDate.innerHTML += `
-        <div style="box-shadow: 0px 0 80px 0.5px #8f8e8e70;
-    padding: 10px;
-    margin-top: 10px;
-    background: white;
-    border-radius: 4px;
-    margin-left: 20px;
-    
-}">
-          
-          <div class="container2">
-          <div class="imageCon">
-          <img src="${book.Image}" class="bookImg"/>
+tr.querySelector(".read-btn").addEventListener("click", () => {
+      const currentBook = getBookById(book.id); // קריאה למודל
+      if (currentBook) {
+        showDate.innerHTML = `
+          <div style="box-shadow: 0px 0 80px 0.5px #8f8e8e70; padding: 10px; margin-top: 10px; background: white; border-radius: 4px; margin-left: 20px;">
+            <div class="container2">
+              <div class="imageCon"><img src="${currentBook.Image || ''}" class="bookImg"/></div>
+              <div class="infoCon"><span class="info">${currentBook.info || 'No info'}</span></div>
+            </div>
+            <p><strong>ID:</strong> ${currentBook.id}</p>
+            <p><strong>Title:</strong> ${currentBook.title}</p>
+            <p><strong>Price:</strong> $${currentBook.price}</p>
           </div>
-          <div class="infoCon">
-          <span class="info"> ${book.info}</span>
-          </div>
-          </div>
-          <p><strong>ID:</strong>${book.id}</p>
-          <p><strong>Title:</strong>${book.title}</p>
-          <p><strong>Price:</strong>$${book.price}</p>
-        </div>
-      `;
+        `;
+      }
     });
 
     const deleteBook = tr.querySelector(".delete-icon");
     deleteBook.addEventListener("click", () => {
       let ok = confirm("Are you sure you want to delete this book? ");
       if (ok) {
-        const index = books.findIndex((b) => b.id === book.id);
-        if (index !== -1) {
-          books.splice(index, 1);
-          console.log("Deleted index:", index);
+        // 2. קריאה ל-Model לביצוע המחיקה הלוגית
+        const success = deleteBookById(book.id);
+
+        if (success) {
+          // 3. עדכון ה-DOM (שייך ל-View)
           tr.remove();
+          console.log("Book removed from UI");
         }
       } else {
-        return console.log("book was not deleted");
+        console.log("Deletion canceled by user");
       }
     });
 
     //
     let updateList = tr.querySelector(".action-link");
+
     updateList.addEventListener("click", () => {
-      let newTitle = prompt("What is the new title?"); // לבדוק שזה סטרינג בלבד
-      let newPrice = prompt("What is the new price?");
-      let newId = prompt("what is the new id?");
+      // 1. קלט מהמשתמש (תפקיד ה-View)
+      let newTitle = prompt("What is the new title?", book.title);
+      let newPrice = prompt("What is the new price?", book.price);
+      let newId = prompt("What is the new id?", book.id);
+
+      // 2. בדיקת תקינות הקלט
       if (
         !newTitle ||
         !newTitle.trim() ||
@@ -91,39 +86,34 @@ function getBook(listBooks) {
         newId === ""
       ) {
         alert("Invalid information");
-      } else {
-        // אם הכל תקין - מעדכנים
-        book.title = newTitle.trim();
-        book.price = Number(newPrice);
-        book.id = Number(newId);
+        return;
+      }
 
-        //tr הוא המשתנה שמייצג את השורה הספציפית בטבלה עליה לחצת. כל שורה ב-HTML מורכבת מ"ילדים" (Children)
+      // 3. קריאה ל-Model לביצוע העדכון (חיבור בין השכבות)
+      const updatedBook = updateBookModel(book.id, {
+        id: newId,
+        title: newTitle.trim(),
+        price: newPrice,
+      });
 
-        // עדכון התצוגה בטבלה באופן מיידי
-        tr.children[0].innerText = book.id;
+      // 4. עדכון ה-UI במידה והעדכון במודל הצליח
+      if (updatedBook) {
+        // עדכון תאי הטבלה
+        tr.children[0].innerText = updatedBook.id;
+        tr.children[1].innerText = updatedBook.title;
+        tr.children[2].innerText = `$${updatedBook.price}`;
 
-        tr.children[1].innerText = book.title;
-        //tr.children[0] – התא הראשון (ה-ID של הספר).
-        //tr.children[1] – התא השני (הכותרת).
-        tr.children[2].innerText = `$${book.price}`;
-        //tr.children[2] – התא השלישי (המחיר).
-        //tr.children[3] ומעלה – כפתורי ה-Read, Update וכו'.
-
-        // בתוך ה-else של העדכון המוצלח:
+        // טיפול בהודעת הצלחה
         const msgContainer = document.getElementById("msg");
-
-        // 1. נציג את ההודעה
-        msgContainer.innerText = `Book "${book.title}" updated successfully!`;
+        msgContainer.innerText = `Book "${updatedBook.title}" updated successfully!`;
         msgContainer.classList.remove("hidden");
-        // 2. נגדיר טיימר שימחק אותה אחרי 5 שניות
+
         setTimeout(() => {
-          msgContainer.innerText = ""; // מוחק את הטקסט
+          msgContainer.innerText = "";
           msgContainer.classList.add("hidden");
-          console.log("Message cleared automatically");
         }, 5000);
       }
     });
-
     tableBody.appendChild(tr);
   });
 }

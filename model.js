@@ -21,3 +21,30 @@ const books = [
 function getBooksMode() {
   return books;
 }
+
+function deleteBookById(id) {
+  const index = books.findIndex((b) => b.id === id);
+  if (index !== -1) {
+    books.splice(index, 1);
+    console.log("Deleted from Model, ID:", id);
+    return true; // הצלחנו למחוק
+  }
+  return false; // הספר לא נמצא
+}
+
+
+
+function updateBookModel(oldId, newData) {
+  const book = books.find((b) => b.id === oldId);
+  if (book) {
+    book.id = Number(newData.id);
+    book.title = newData.title;
+    book.price = Number(newData.price);
+    return book;
+  }
+  return null;
+}
+
+function getBookById(id) {
+  return books.find((b) => b.id === id);
+}
