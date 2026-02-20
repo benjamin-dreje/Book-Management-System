@@ -38,9 +38,13 @@ app.post("/book", (req, res) => {
 });
 
 // DELETE - מחיקה באמצעות filter
+// התיקון ב-server.js
 app.delete("/book/:id", (req, res) => {
   const idToDelete = Number(req.params.id);
-  books = books.filter((book) => book.id !== idToDelete);
+
+  // הוספת בדיקה ש-book קיים לפני שבודקים את ה-id שלו
+  books = books.filter((book) => book && book.id !== idToDelete);
+
   res.json({ success: true });
 });
 
@@ -65,7 +69,7 @@ app.put("/book/:id", (req, res) => {
   });
 
   const updatedBook = books.find((b) => b.id === Number(newData.id));
-  res.json(updatedBook);
+  res.json({ success: true, message: "Book updated successfully" });
 });
 
 const PORT = 3000;
