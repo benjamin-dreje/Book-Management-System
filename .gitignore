@@ -1,0 +1,12 @@
+# התקנות של Node (תיקייה כבדה מאוד שנוצרת מחדש עם npm install)
+node_modules/
+
+# קבצי הגדרות של המחשב (Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# קבצי סביבה (אם יהיו לך בהמשך קבצים עם סיסמאות)
+.env
+
+# תיקיות לוגים
+npm-debug.log*
