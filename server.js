@@ -1,3 +1,19 @@
+require("dotenv").config(); // חייב להיות בשורה הראשונה
+const mongoose = require("mongoose");
+// ... שאר ה-requires (cors וכו')
+
+// שימוש בכתובת מה-env
+const mongoURI = process.env.MONGO_URI;
+
+mongoose
+  .connect(mongoURI)
+  .then(() =>
+    console.log("Connected to MongoDB Atlas via Environment Variables!"),
+  )
+  .catch((err) => console.error("Could not connect to MongoDB:", err));
+
+// ... המשך הקוד שלך
+
 const express = require("express");
 const cors = require("cors");
 const app = express();
