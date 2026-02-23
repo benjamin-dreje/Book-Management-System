@@ -12,7 +12,6 @@ mongoose
   )
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-// ... המשך הקוד שלך
 
 const express = require("express");
 const cors = require("cors");
@@ -41,30 +40,27 @@ let books = [
   { id: 24, title: "Effective Modern C++", price: 34.0 },
 ];
 
-// GET - קבלת כל הספרים
+// GET 
 app.get("/book", (req, res) => {
   res.json(books);
 });
 
-// POST - הוספת ספר חדש (באמצעות push)
+// POST 
 app.post("/book", (req, res) => {
   const newBook = req.body;
   books.push(newBook);
   res.json(newBook);
 });
 
-// DELETE - מחיקה באמצעות filter
-// התיקון ב-server.js
+// DELETE 
 app.delete("/book/:id", (req, res) => {
   const idToDelete = Number(req.params.id);
-
-  // הוספת בדיקה ש-book קיים לפני שבודקים את ה-id שלו
   books = books.filter((book) => book && book.id !== idToDelete);
 
   res.json({ success: true });
 });
 
-// UPDATE - עדכון באמצעות map (כפי שנתבקשת ברמז)
+// UPDATE 
 app.put("/book/:id", (req, res) => {
   const idToUpdate = Number(req.params.id);
   const newData = req.body;
